@@ -10,9 +10,9 @@ interface Props extends TextProps{
 const getTextClass = (type?: textType): string => {
   switch (type) {
     case 'h1':
-      return 'text-4xl font-bold';
+      return 'text-2xl font-bold';
     case 'h2':
-      return 'text-3xl font-semibold';
+      return 'text-xl font-semibold';
     case 'semibold':
       return 'font-semibold';
     case 'link':

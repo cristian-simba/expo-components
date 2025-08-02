@@ -17,6 +17,7 @@ module.exports = {
           tertiary: Colors.light.tertiary,
           background: Colors.light.background,
           text: Colors.light.text,
+          cardBackground: Colors.light.cardBackground,
         },
         dark: {
           primary: Colors.dark.primary,
@@ -24,6 +25,7 @@ module.exports = {
           tertiary: Colors.dark.tertiary,
           background: Colors.dark.background,
           text: Colors.dark.text,
+          cardBackground: Colors.dark.cardBackground,
         },
       },
 

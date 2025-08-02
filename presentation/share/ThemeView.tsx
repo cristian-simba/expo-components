@@ -24,13 +24,13 @@ export default function ThemeView({
     return (
         // className='bg-light-background dark:bg-dark-background'
         <View
-            // style={{
-            //     backgroundColor: backgroundColor,
-            //     flex: 1,
-            //     paddingTop: safe ? safeArea.top : 0,
-            //     marginHorizontal: margin ? 10 : 0
-            // }}
-            className='bg-light-background dark:bg-dark-background'
+            style={{
+                backgroundColor: backgroundColor,
+                flex: 1,
+                paddingTop: safe ? safeArea.top : 0,
+                marginHorizontal: margin ? 10 : 0
+            }}
+            // className='bg-light-background dark:bg-dark-background'
         >
             {children}
         </View>

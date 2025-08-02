@@ -1,16 +1,19 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Text, View } from 'react-native';
-import 'react-native-reanimated';
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { useColorScheme } from '@/hooks/useColorScheme';
-import "./global.css"
 import { useThemeColor } from '@/hooks/useThemeColor';
-import ThemeView from '@/presentation/share/ThemeView';
-import ThemeText from '@/presentation/share/ThemeText';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import { allRoutes } from '@/constants/Routes';
+
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import 'react-native-reanimated';
+
+import "./global.css"
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const bgColor = useThemeColor({}, 'background')
+
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -19,14 +22,41 @@ export default function RootLayout() {
     return null;
   }
 
-  const bgColor = useThemeColor({}, 'background')
 
   return (
     <GestureHandlerRootView style={{backgroundColor: bgColor, flex: 1}}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <ThemeView>
-          <ThemeText type='h1' className='mt-14'>Hola mundo</ThemeText>
-        </ThemeView>
+        <Stack
+          screenOptions={{
+            headerShadowVisible: false,
+            contentStyle: {
+              backgroundColor: bgColor
+            },
+            headerStyle: {
+              backgroundColor: bgColor
+            }
+          }}
+        >
+          <Stack.Screen
+            name='index'
+            options={{
+              title: "Home"  
+            }}
+          />
+
+          {
+            allRoutes.map(route => (
+              <Stack.Screen
+                key={route.name}
+                name={route.name}
+                options={{
+                  title: route.title
+                }}
+              />
+            ))
+          }
+
+        </Stack>
       </ThemeProvider>
     </GestureHandlerRootView>
   );

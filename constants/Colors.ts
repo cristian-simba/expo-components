@@ -11,6 +11,7 @@ export const Colors = {
     success: '#52d49b',
     text: '#000000',
     background: '#f5f5f5',
+    cardBackground: '#fff',
   },
   dark: {
     primary: '#7a4edc',
@@ -19,5 +20,6 @@ export const Colors = {
     success: '#3a9d78',
     text: '#ECEDEE',
     background: '#17202A',
+    cardBackground: '',
   },
 };
