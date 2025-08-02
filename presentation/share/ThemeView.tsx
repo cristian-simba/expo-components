@@ -1,4 +1,4 @@
-import { Text, View, ViewProps } from 'react-native';
+import { View, ViewProps } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -20,7 +20,6 @@ export default function ThemeView({
 
     const backgroundColor = bgColor ?? useThemeColor({}, 'background')
     const safeArea = useSafeAreaInsets()
-
 
     return (
         // className='bg-light-background dark:bg-dark-background'

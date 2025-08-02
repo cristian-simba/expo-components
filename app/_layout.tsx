@@ -7,6 +7,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import "./global.css"
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemeView from '@/presentation/share/ThemeView';
+import ThemeText from '@/presentation/share/ThemeText';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -24,7 +25,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{backgroundColor: bgColor, flex: 1}}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeView>
-          <Text className='text-3xl mt-10 text-light-primary dark:text-dark-primary'>Hola mundo</Text>
+          <ThemeText type='h1' className='mt-14'>Hola mundo</ThemeText>
         </ThemeView>
       </ThemeProvider>
     </GestureHandlerRootView>
